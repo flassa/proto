@@ -43,7 +43,7 @@ var app = {
         var pushNotification = window.plugins.pushNotification;
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-        //pushNotification.register(this.successHandler, this.errorHandler, {"senderID": "39968842805", "ecb": "app.onNotificationGCM"});
+        pushNotification.register(this.successHandler, this.errorHandler, {"senderID": "39968842805", "ecb": "app.onNotificationGCM"});
         console.log('Received Event: ' + id);
     },
     // result contains any message sent from the plugin call
