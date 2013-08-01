@@ -17,7 +17,7 @@
  * under the License.
  */
 var app = {
-    // Application Constructor
+// Application Constructor
     initialize: function() {
         this.bindEvents();
     },
@@ -40,10 +40,42 @@ var app = {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
-
+        var pushNotification = window.plugins.pushNotification;
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
+        pushNotification.register(this.successHandler, this.errorHandler, {"senderID": "39968842805", "ecb": "app.onNotificationGCM"});
         console.log('Received Event: ' + id);
+    },
+    // result contains any message sent from the plugin call
+    successHandler: function(result) {
+        alert('Callback Success! Result = ' + result);
+    },
+    errorHandler: function(error) {
+        alert(error);
+    },
+    onNotificationGCM: function(e) {
+        switch (e.event)
+        {
+            case 'registered':
+                if (e.regid.length > 0)
+                {
+                    console.log("Regid " + e.regid);
+                    alert('registration id = ' + e.regid);
+                }
+                break;
+
+            case 'message':
+                // this is the actual push notification. its format depends on the data model from the push server
+                alert('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
+                break;
+
+            case 'error':
+                alert('GCM error = ' + e.msg);
+                break;
+
+            default:
+                alert('An unknown GCM event has occurred');
+                break;
+        }
     }
 };
