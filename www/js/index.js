@@ -51,7 +51,7 @@ var app = {
         alert('Callback Success! Result = ' + result);
     },
     errorHandler: function(error) {
-        alert(error);
+        alert('Aquí:' + error);
     },
     onNotificationGCM: function(e) {
         switch (e.event)
