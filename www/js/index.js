@@ -45,19 +45,17 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
         
         console.log('Received Event: ' + id);
-        //alert('Hola');
         
-        /*
         var pushNotification = window.plugins.pushNotification;
         if (device.platform == 'android' || device.platform == 'Android') {
-            alert("Register called");
+            //alert("Register called");
             pushNotification.register(this.successHandler, this.errorHandler,{"senderID":"39968842805","ecb":"app.onNotificationGCM"});
         }
         else {
-            alert("Register called");
+            //alert("Register called");
             pushNotification.register(this.successHandler,this.errorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"app.onNotificationAPN"});
         }
-        */
+        
     },
     // result contains any message sent from the plugin call
     successHandler: function(result) {
@@ -66,7 +64,7 @@ var app = {
     errorHandler: function(error) {
         alert(error);
     },
-    /*
+    
     onNotificationGCM: function(e) {
         switch( e.event )
         {
@@ -74,7 +72,7 @@ var app = {
                 if ( e.regid.length > 0 )
                 {
                     console.log("Regid " + e.regid);
-                    alert('registration id = '+e.regid);
+                    //alert('registration id = '+e.regid);
                 }
             break;
  
@@ -107,5 +105,5 @@ var app = {
             snd.play();
         }
     }
-    */
+    
 };
