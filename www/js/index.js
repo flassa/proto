@@ -45,6 +45,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
         
         console.log('Received Event: ' + id);
+        /*
         var pushNotification = window.plugins.pushNotification;
         if (device.platform == 'android' || device.platform == 'Android') {
             alert("Register called");
@@ -53,7 +54,8 @@ var app = {
         else {
             alert("Register called");
             pushNotification.register(this.successHandler,this.errorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"app.onNotificationAPN"});
-        }        
+        }
+        */
     },
     // result contains any message sent from the plugin call
     successHandler: function(result) {
@@ -62,6 +64,7 @@ var app = {
     errorHandler: function(error) {
         alert(error);
     },
+    /*
     onNotificationGCM: function(e) {
         switch( e.event )
         {
@@ -101,5 +104,6 @@ var app = {
             var snd = new Media(event.sound);
             snd.play();
         }
-    }            
+    }
+    */
 };
