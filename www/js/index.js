@@ -45,7 +45,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
         
         console.log('Received Event: ' + id);
-        alert('Hola');
+        //alert('Hola');
         
         /*
         var pushNotification = window.plugins.pushNotification;
