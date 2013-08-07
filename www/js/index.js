@@ -48,7 +48,7 @@ var app = {
         var pushNotification = window.plugins.pushNotification;
         if (device.platform == 'android' || device.platform == 'Android') {
             alert("Register called");
-            pushNotification.register(this.successHandler, this.errorHandler,{"senderID":"824841663931","ecb":"app.onNotificationGCM"});
+            pushNotification.register(this.successHandler, this.errorHandler,{"senderID":"39968842805","ecb":"app.onNotificationGCM"});
         }
         else {
             alert("Register called");
@@ -60,7 +60,7 @@ var app = {
         alert('Callback Success! Result = '+result)
     },
     errorHandler:function(error) {
-        alert(error);
+        alert('Error: '+error);
     },
     onNotificationGCM: function(e) {
         switch( e.event )
