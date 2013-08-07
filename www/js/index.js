@@ -50,6 +50,7 @@ var app = {
         if (device.platform == 'android' || device.platform == 'Android') {
             alert("Register called");
             pushNotification.register(this.successHandler, this.errorHandler,{"senderID":"39968842805","ecb":"app.onNotificationGCM"});
+            alert("pasó");
         }
         else {
             alert("Register called");
@@ -64,7 +65,7 @@ var app = {
     errorHandler: function(error) {
         alert(error);
     },
-    /*
+    
     onNotificationGCM: function(e) {
         switch( e.event )
         {
@@ -105,5 +106,5 @@ var app = {
             snd.play();
         }
     }
-    */
+    
 };
