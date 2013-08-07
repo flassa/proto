@@ -45,28 +45,28 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-
-        window.appavailability('com.facebook.katana', function(availability) {
-            // availability is either true or false
-            if (availability) {
-                alert('Facebook is available');
-            } else {
-                alert('Facebook isn´t available');
-            }
-        });
-
-        /* 
-         var pushNotification = window.plugins.pushNotification;
-         if (device.platform == 'android' || device.platform == 'Android') {
-         alert("Register called");
-         pushNotification.register(this.successHandler, this.errorHandler,{"senderID":"39968842805","ecb":"app.onNotificationGCM"});
-         alert("pasó");
+        /*
+         window.appavailability('com.facebook.katana', function(availability) {
+         // availability is either true or false
+         if (availability) {
+         alert('Facebook is available');
+         } else {
+         alert('Facebook isn´t available');
          }
-         else {
-         alert("Register called");
-         pushNotification.register(this.successHandler,this.errorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"app.onNotificationAPN"});
-         }
+         });
          */
+
+        var pushNotification = window.plugins.pushNotification;
+        if (device.platform == 'android' || device.platform == 'Android') {
+            alert("Register called");
+            pushNotification.register(this.successHandler, this.errorHandler, {"senderID": "39968842805", "ecb": "app.onNotificationGCM"});
+            alert("pasó");
+        }
+        else {
+            alert("Register called");
+            pushNotification.register(this.successHandler, this.errorHandler, {"badge": "true", "sound": "true", "alert": "true", "ecb": "app.onNotificationAPN"});
+        }
+
     },
     /*
      // result contains any message sent from the plugin call
