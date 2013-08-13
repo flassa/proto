@@ -19,6 +19,7 @@
 var app = {
     // Application Constructor
     initialize: function() {
+        alert('Viene y lo presenta');
         this.bindEvents();
     },
     // Bind Event Listeners
@@ -43,8 +44,10 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
+        
+        alert('Received Event: ' + id); 
         console.log('Received Event: ' + id);
+        /*
         var pushNotification = window.plugins.pushNotification;
         if (device.platform == 'android' || device.platform == 'Android') {
             alert("Register called");
@@ -54,6 +57,7 @@ var app = {
             alert("Register called");
             pushNotification.register(this.successHandler,this.errorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"app.onNotificationAPN"});
         }
+        */
     },
     // result contains any message sent from the plugin call
     successHandler: function(result) {
