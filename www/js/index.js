@@ -48,12 +48,25 @@ var app = {
 
         var pushNotification = window.plugins.pushNotification;
         if (device.platform == 'android' || device.platform == 'Android') {
-            alert("Register called");
+            alert("Register Android called");
             pushNotification.register(this.successHandler, this.errorHandler, {"senderID": "39968842805", "ecb": "app.onNotificationGCM"});
         }
         else {
-            alert("Register called");
+            alert("Register Apple called");
             pushNotification.register(this.successHandler, this.errorHandler, {"badge": "true", "sound": "true", "alert": "true", "ecb": "app.onNotificationAPN"});
+        }
+
+        window.plugins.diagnostic.isLocationEnabled(locationEnabledSuccessCallback, locationEnabledErrorCallback);
+
+        function locationEnabledSuccessCallback(result) {
+            if (result)
+                alert("Location ON");
+            else
+                alert("Location OFF");
+        }
+
+        function locationEnabledErrorCallback(error) {
+            console.log(error);
         }
 
     },
