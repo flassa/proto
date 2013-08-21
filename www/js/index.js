@@ -52,7 +52,7 @@ var app = {
             pushNotification.register(this.successHandler, this.errorHandler, {"senderID": "39968842805", "ecb": "app.onNotificationGCM"});
         }
         else {
-            alert("Register Apple called");
+            alert("Register Apple1 called");
             pushNotification.register(this.successHandler, this.errorHandler, {"badge": "true", "sound": "true", "alert": "true", "ecb": "app.onNotificationAPN"});
         }
 
